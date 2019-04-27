@@ -8,12 +8,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package-lock.json" }}
+          - v1-dependencies-{{ checksum ".nvmrc" }}-{{ checksum "package-lock.json" }}
       - run: npm install
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          key: v1-dependencies-{{ checksum ".nvmrc" }}-{{ checksum "package-lock.json" }}
       - run: npm run compile
       - run: npm run lint
       - run: npm run test
