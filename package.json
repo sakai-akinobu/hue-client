@@ -25,8 +25,11 @@
   },
   "homepage": "https://github.com/sakai-akinobu/hue-client#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "jest": "^24.7.1",
     "rollup": "^1.10.1",
     "rollup-plugin-typescript2": "^0.21.0",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.4.5"
   }
 }
