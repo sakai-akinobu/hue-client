@@ -6,7 +6,9 @@
   "scripts": {
     "compile": "npx tsc --noEmit",
     "build": "npx rollup -c",
-    "test": "npx jest"
+    "test": "npx jest",
+    "lint": "npx eslint src/**/*.ts",
+    "lint:fix": "npx eslint --fix src/**/*.ts"
   },
   "repository": {
     "type": "git",
