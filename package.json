@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/sakai-akinobu/hue-client/issues"
   },
-  "homepage": "https://github.com/sakai-akinobu/hue-client#readme"
+  "homepage": "https://github.com/sakai-akinobu/hue-client#readme",
+  "devDependencies": {
+    "typescript": "^3.4.5"
+  }
 }
