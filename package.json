@@ -4,7 +4,7 @@
   "description": "Philips Hue client for Node.js.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "npx tsc --noEmit"
   },
   "repository": {
     "type": "git",
