@@ -34,11 +34,13 @@
   "homepage": "https://github.com/sakai-akinobu/hue-client#readme",
   "devDependencies": {
     "@types/jest": "^24.0.11",
+    "@types/nock": "^10.0.1",
     "@types/request-promise-native": "^1.0.16",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
     "eslint": "^5.16.0",
     "husky": "^2.1.0",
     "jest": "^24.7.1",
+    "nock": "^10.0.6",
     "rollup": "^1.10.1",
     "rollup-plugin-typescript2": "^0.21.0",
     "ts-jest": "^24.0.2",
