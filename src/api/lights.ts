@@ -12,4 +12,8 @@ export default class Lights extends Base {
   async updateById(id: string, state: any) {
     return await this.put(`/lights/${id}/state`, state);
   }
+
+  async deleteById(id: string) {
+    return await this.delete(`/lights/${id}`);
+  }
 }
