@@ -13,6 +13,10 @@ export default class Lights extends Base {
     return await this.get('/lights/new');
   }
 
+  async renameById(id: string, newName: string) {
+    return await this.put(`/lights/${id}`, {name: newName});
+  }
+
   async updateById(id: string, state: any) {
     return await this.put(`/lights/${id}/state`, state);
   }
