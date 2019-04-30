@@ -9,6 +9,10 @@ export default class Lights extends Base {
     return await this.get(`/lights/${id}`);
   }
 
+  async discoverNew() {
+    return await this.get('/lights/new');
+  }
+
   async updateById(id: string, state: any) {
     return await this.put(`/lights/${id}/state`, state);
   }
