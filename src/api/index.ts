@@ -1,4 +1,4 @@
-import Lights from './lights';
+import Lights from './user/lights';
 
 type Options = {
   bridge: string;
