@@ -2,26 +2,26 @@ import Base from './base';
 
 export default class Lights extends Base {
   async getAll() {
-    return await this.get('/lights');
+    return await this.getRequest('/lights');
   }
 
   async getById(id: string) {
-    return await this.get(`/lights/${id}`);
+    return await this.getRequest(`/lights/${id}`);
   }
 
   async discoverNew() {
-    return await this.get('/lights/new');
+    return await this.getRequest('/lights/new');
   }
 
   async renameById(id: string, newName: string) {
-    return await this.put(`/lights/${id}`, {name: newName});
+    return await this.putRequest(`/lights/${id}`, {name: newName});
   }
 
   async updateById(id: string, state: any) {
-    return await this.put(`/lights/${id}/state`, state);
+    return await this.putRequest(`/lights/${id}/state`, state);
   }
 
   async deleteById(id: string) {
-    return await this.delete(`/lights/${id}`);
+    return await this.deleteRequest(`/lights/${id}`);
   }
 }
