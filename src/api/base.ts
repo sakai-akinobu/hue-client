@@ -2,7 +2,7 @@ import * as request from 'request-promise-native';
 
 type Options = {
   bridge: string;
-  userName: string;
+  userName?: string;
 };
 
 export default class Base {
@@ -12,7 +12,7 @@ export default class Base {
     this.options = options;
   }
 
-  private getBaseUrl() {
+  protected getBaseUrl() {
     return `http://${this.options.bridge}/api/${this.options.userName}`;
   }
 

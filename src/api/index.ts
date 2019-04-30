@@ -2,7 +2,7 @@ import Lights from './lights';
 
 type Options = {
   bridge: string;
-  userName: string;
+  userName?: string;
 };
 
 export function createAPI(options: Options) {
