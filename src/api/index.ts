@@ -1,3 +1,4 @@
+import Users from './users';
 import Lights from './user/lights';
 
 type Options = {
@@ -6,9 +7,11 @@ type Options = {
 };
 
 export function createAPI(options: Options) {
+  const users = new Users(options);
   const lights = new Lights(options);
 
   return {
+    users,
     lights,
     options,
   };
