@@ -16,7 +16,7 @@ export default class Base {
     return `http://${this.options.bridge}/api/${this.options.userName}`;
   }
 
-  async get(path: string, queryString?: object) {
+  async get<ResponseBody>(path: string, queryString?: object): Promise<ResponseBody> {
     const uri = `${this.getBaseUrl()}${path}`;
     return await request.get({
       uri,
@@ -25,7 +25,7 @@ export default class Base {
     });
   }
 
-  async post(path: string, body?: object) {
+  async post<ResponseBody>(path: string, body?: object): Promise<ResponseBody> {
     const uri = `${this.getBaseUrl()}${path}`;
     return await request.post({
       uri,
@@ -34,7 +34,7 @@ export default class Base {
     });
   }
 
-  async put(path: string, body?: object) {
+  async put<ResponseBody>(path: string, body?: object): Promise<ResponseBody> {
     const uri = `${this.getBaseUrl()}${path}`;
     return await request.put({
       uri,
@@ -43,7 +43,7 @@ export default class Base {
     });
   }
 
-  async delete(path: string, queryString?: object) {
+  async delete<ResponseBody>(path: string, queryString?: object): Promise<ResponseBody> {
     const uri = `${this.getBaseUrl()}${path}`;
     return await request.delete({
       uri,
