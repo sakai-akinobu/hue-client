@@ -6,9 +6,14 @@
   "scripts": {
     "compile": "npx tsc --noEmit",
     "build": "npx rollup -c",
-    "test": "npx jest",
+    "test": "npx jest src/*",
     "lint": "npx eslint src/**/*.ts",
     "lint:fix": "npx eslint --fix src/**/*.ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run compile && npm run lint && npm run test"
+    }
   },
   "repository": {
     "type": "git",
