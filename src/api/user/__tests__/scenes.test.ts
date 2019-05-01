@@ -1,12 +1,12 @@
 import nock from 'nock';
 
-import Groups from '../groups';
+import Scenes from '../scenes';
 
-describe('src/groups.ts', () => {
+describe('src/scenes.ts', () => {
   const apiHost = /.*/;
   const userName = 'userName';
 
-  const api = new Groups({
+  const api = new Scenes({
     bridge: 'bridge',
     userName,
   });
@@ -18,7 +18,7 @@ describe('src/groups.ts', () => {
   describe('getAll', () => {
     beforeEach(() => {
       nock(apiHost)
-        .get(`/api/${userName}/groups`)
+        .get(`/api/${userName}/scenes`)
         .reply(200, {});
     });
 
@@ -33,7 +33,7 @@ describe('src/groups.ts', () => {
 
     beforeEach(() => {
       nock(apiHost)
-        .get(`/api/${userName}/groups/${id}`)
+        .get(`/api/${userName}/scenes/${id}`)
         .reply(200, {});
     });
 
@@ -46,7 +46,7 @@ describe('src/groups.ts', () => {
   describe('create', () => {
     beforeEach(() => {
       nock(apiHost)
-        .post(`/api/${userName}/groups`)
+        .post(`/api/${userName}/scenes`)
         .reply(200, {});
     });
 
@@ -56,17 +56,18 @@ describe('src/groups.ts', () => {
     });
   });
 
-  describe('updateById', () => {
-    const id = '1';
+  describe('updateLightStateById', () => {
+    const sceneId = '1';
+    const lightId = '2';
 
     beforeEach(() => {
       nock(apiHost)
-        .put(`/api/${userName}/groups/${id}/action`)
+        .put(`/api/${userName}/scenes/${sceneId}/lightstates/${lightId}`)
         .reply(200, {});
     });
 
     test('200', async () => {
-      const res = await api.updateById(id, {});
+      const res = await api.updateLightStateById(sceneId, lightId, {});
       expect(res).toEqual({});
     });
   });
@@ -76,12 +77,28 @@ describe('src/groups.ts', () => {
 
     beforeEach(() => {
       nock(apiHost)
-        .delete(`/api/${userName}/groups/${id}`)
+        .delete(`/api/${userName}/scenes/${id}`)
         .reply(200, {});
     });
 
     test('200', async () => {
       const res = await api.deleteById(id);
+      expect(res).toEqual({});
+    });
+  });
+
+  describe('recall', () => {
+    const groupId = '1';
+    const sceneId = '2';
+
+    beforeEach(() => {
+      nock(apiHost)
+        .put(`/api/${userName}/groups/${groupId}/action`)
+        .reply(200, {});
+    });
+
+    test('200', async () => {
+      const res = await api.recall(groupId, sceneId);
       expect(res).toEqual({});
     });
   });
